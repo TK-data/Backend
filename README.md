@@ -307,7 +307,11 @@ Example of car object:
 ```
 POST /api/fuelrefill/register
 ```
+<<<<<<< HEAD
 Registers a new fuelrefill entry.
+=======
+registers a new fuelrefill entry.
+>>>>>>> dev
 
 Required fields in body: `FuelTime, Price, Rate`
 
@@ -364,6 +368,7 @@ GET /api/damagereport/getcurrent
 ```
 
 Gets the latest damage report from a logged in user
+<<<<<<< HEAD
 
 
 
@@ -397,6 +402,9 @@ POST /api/company/save
 ```
 Saves the company on the current user.
 ### Backend content
+=======
+### Blueprint APIs
+>>>>>>> dev
 #### Models
 To make logic for our controllers to get different data from specific tables in our database, we defined different models based on the attributes of the different data we would handle.
 * Car
@@ -590,9 +598,18 @@ This will deploy the backend app to the heroku app directory you have setup duri
 
 
 ## Authors
+<<<<<<< HEAD
 * **Christian Nyvoll** - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - [Git](https://github.com/Shamzaa)
 * **Henrik Liodden** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/henrikliodden/)
 * **Kristiane Westgård** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
+=======
+* **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
+* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
+* **Erling Ihlen** - *Test Leader* - [Git](https://github.com/Shamzaa)
+* **Henrik Liodden** - *Team Member* - [Git](https://github.com/)
+* **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
+* **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
+>>>>>>> dev
