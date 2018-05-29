@@ -32,5 +32,22 @@ module.exports = {
       });
     });
     sails.log('Hello buster');
+  },
+
+  createExampleCompanies: function () {
+    const companyNames = [
+      'Sparebank1',
+      'Trondheim Kommune',
+      'Bilfirma',
+    ];
+
+    for (let name of companyNames) {
+      Company.create({CompanyName: name}).exec(function(err, company) {
+        if (err) {
+          sails.log(err);
+        }
+        sails.log(company);
+      });
+    }
   }
 };
