@@ -1,7 +1,7 @@
 /**
- * MovieDataService
+ * UserDataService
  *
- * @description :: Movie data helpers
+ * @description :: User data helpers
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/services
  */
 
