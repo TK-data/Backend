@@ -8,15 +8,15 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Development Setup](#development-setup)
 * [React Native App Description](#react-native-app-description)
 * [React Dashboard Description](#react-dashboard-description)
-* [Database](#database)
 * [Sails.js Backend](#sailsjs-backend-description)
 * [API Reference](#api-reference)
+* [Database](#database)
 * [Linting](#linting)
 * [Continous Integration](#continous-integration)
 * [Deployment](#deployment)
 
 ## Overview
-The system will be a portal for businesses to manage their fleet of cars. Each company that wants to use the platform will get access to two main features. The person in charge from the company will have access to an administration dashboard, which will are a web application. The employees of the company that use company vehicles will use a mobile application to log any car related activities.
+The system will be a portal for businesses to manage their fleet of cars. Each company that wants to use the platform will get access to two main features. The person in charge from the company will have access to an administration dashboard, which is a web application. The employees of the company that use company vehicles will use a mobile application to log any car related activities.
 
 #### The Application
 The application will give the employees a range of functionality that will make it easier to use the car at work.
@@ -25,15 +25,15 @@ Examples of functionalities:
 
 - Driving log: The employe can register work related car trips.
 - Damage report: The employe can register any damage on the vehicle.
-- Fuel refill notification: The employe can choose when it want's to refill fuel and then get a notification every week on the same day and time.
+- Fuel refill notification: The employe can choose when he/she want's to refill fuel and then get a notification every week on the same day and time.
 
 #### The Dashboard
 The dashboard will give an overview of all car related activities that the employees in the company registers. For now the only thing that is ready is the login page and a page that shows all the cars in the database.
 
-Future development will give the person in charge from the company an complete overview of everything about their fleet of cars. Ranging from when people refills and how long every car have driven to when the insurance of each car expires.
+Future development will give the person in charge from the company a complete overview of everything about their fleet of cars. Ranging from when people refill and how long every car has driven, to when the insurance of each car expires.
 
 #### The Backend
-The backend is made with Sails which is a MVC framework built on Node.js. It serves as an API endpoint on our backend and let users manipulate and fetch data from the database, by using our frontend applications.
+The backend is made with Sails which is a MVC framework built on Node.js. It serves as an API endpoint on our backend and lets users manipulate and fetch data from the database, by using our frontend applications.
 
 
 
@@ -55,13 +55,24 @@ To install the application, navigate to the backend folder and install dependenc
 cd Backend
 npm install
 ```
+
+Populating your DB with example data.
+
+Example admin user is admin@admin.com, adminsen
+```
+sails console
+sails.services.userdataservice.createExampleCompanies()
+sails.services.userdataservice.createExampleAdmin()
+.exit
+```
+
 To locally run the backend on your machine serve it with:
 ```
 sails lift
 ```
 You need to set up the environment variables for the DSM API and the database.
 Duplicate ```app-env.example``` and rename it ```app-env```
-Open up ```app-env``` and edit the variables to the correct values for your DSM account and database.
+Open up ```app-env``` and edit the variables to the correct values for your DSM account and database (variables for database is not needed if you are using local disk adapter).
 
 To add these variables to the enviroment, open up console at the backend folder, and execute ```source app-env```
 
@@ -71,13 +82,12 @@ First you need to clone https://github.com/TK-data/BilparkApp.
 git clone https://github.com/TK-data/BilparkApp.git
 ```
 Then point to the address of the machine that is running the backend:
-```
-go to BilparkApp\src\config
-duplicate connections.js.example and rename it connections.js
-edit the API_ADDRESS to where the backend is running
-save
-```
-Then install the dependencies and run the application.
+1. Navigate to BilparkApp\src\config - ```cd BilparkApp\src\config```
+2. Duplicate connections.js.example and rename it connections.js
+3. Edit the API_ADDRESS to where the backend is running (your local IP if running on the same machine)
+4. Save the file
+
+Then install the dependencies and run the application:
 ```
 cd BilparkApp
 npm install
@@ -94,18 +104,17 @@ First you need to clone https://github.com/TK-data/BilparkDashboard.
 git clone https://github.com/TK-data/BilparkDashboard.git
 ```
 First point to the address of the machine that is running the backend:
-```
-go to bpdashboard\src\config
-duplicate connections.js.example and rename it connections.js
-edit the API_ADDRESS to where the backend is running
-save
-```
+1. Navigate to bpdashboard\src\config - ```cd bpdashboard\src\config```
+2. Duplicate connections.js.example and rename it connections.js
+3. Edit the API_ADDRESS to where the backend is running (your local IP if running on the same machine)
+4. Save the file
 
-Then run the Application from terminal
+
+Then install the dependencies and run the application:
 
 ```
 cd bpdashboard
-npm Install
+npm install
 npm start
 ```
 
@@ -125,7 +134,7 @@ Is put together by UserRegisterScreen and UserRegisterForm  which give the user 
 #### Menu
 Is put together by MenuScreen, MenuBox, ProfileButton, Slide1 and Slide2. You will be able to navigate to all functionality from the Menu.
 #### DamageReport
-Is put together by DamageReportScreen and DamageReportForm\*. The user can register damage on it's vehicle from this component.  
+Is put together by DamageReportScreen and DamageReportForm\*. The user can register damages on his/her vehicle from this component.  
 #### FuelDay
 Is put together by FuelDayScreen and FuelDayForm. The user can change when it wants notification about when to refill from this component.  
 #### FuelDayModal
@@ -163,9 +172,9 @@ Slide with information about the company the user are connected to.
 #### DamageReportScreen
 Container for DamageReportForm
 #### DamageReportForm \*
-A form with several fields to register damage on the users vehicle. Do also let the user write a comment if there has been any damage on parts of the car.
+A form with several fields to register damage on the users vehicle. Does also let the user write an optional comment if there has been any damage on parts of the car.
 #### FuelDayScreen
-Container for FuelDayForm and FuelDayForm.
+Container for FuelDayForm.
 #### FuelDayForm \*
 A form that lets the user set time, day and if it want's a notification.
 #### FuelSetNotificationScreen
@@ -203,16 +212,16 @@ Autocompletes input and gives the user alternatives for street names.
 #### GooglePlacesAutocompleteTo \**
 Autocompletes input and gives the user alternatives for street names.
 
-\* _This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)_
+\* _These components are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)_
 
-\** _This component are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)_
+\** _These components are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)_
 
 
 ---
 
 ### Service classes
 
-This application handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in BilparkApp/src/actions.
+This application handles state with [Redux](https://redux.js.org/), you can therefore find all service classes in BilparkApp/src/actions.
 
 ## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
@@ -227,13 +236,11 @@ Gets all the cars from the database and shows them in a table view.
 
 ### Service classes
 
-This dashboard handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in bpdashboard/src/actions.
+This dashboard handles state with [Redux](https://redux.js.org/), you can therefore find all service classes in bpdashboard/src/actions.
 
-## Database
-We use [MySQL](https://www.mysql.com/) for the database. You can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
 
 ## Sailsjs Backend Description
-Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
+Our backend is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
 ## API Reference
 ### User
@@ -268,7 +275,7 @@ POST /api/user/notification
 ```
 Updates the user with what time they want to save their push notification. Need to be logged in.
 
-Required fields in body: `FuelTime: 12-00`, `FuelDay: 0-6`, `FuelNotification: 'true'`
+Required fields in http `body`: `FuelTime: 12-00`, `FuelDay: 0-6`, `FuelNotification: 'true'`
 
 
 ### Car
@@ -307,13 +314,9 @@ Example of car object:
 ```
 POST /api/fuelrefill/register
 ```
-<<<<<<< HEAD
 Registers a new fuelrefill entry.
-=======
-registers a new fuelrefill entry.
->>>>>>> dev
 
-Required fields in body: `FuelTime, Price, Rate`
+Required fields in http `body`: `FuelTime, Price, Rate`
 
 
 ```
@@ -321,7 +324,7 @@ POST /api/fuelrefill/remove
 ```
 Removes a refill entry, for a logged in user.
 
-Required field in body: `RefillID`
+Required field in http `body`: `RefillID`
 
 
 ```
@@ -338,7 +341,7 @@ POST /api/damagereport/register
 ```
 Register a new damage report.
 
-Example of body for POST request, notice description is not required:
+Example of http `body` for POST request, notice description is ***not required***:
 
 ```
 {
@@ -368,7 +371,6 @@ GET /api/damagereport/getcurrent
 ```
 
 Gets the latest damage report from a logged in user
-<<<<<<< HEAD
 
 
 
@@ -402,9 +404,6 @@ POST /api/company/save
 ```
 Saves the company on the current user.
 ### Backend content
-=======
-### Blueprint APIs
->>>>>>> dev
 #### Models
 To make logic for our controllers to get different data from specific tables in our database, we defined different models based on the attributes of the different data we would handle.
 * Car
@@ -503,8 +502,12 @@ We utilize the built in features of handling and storing sessions by SailsJS.
 
 Further details is documented at [their website](https://sailsjs.com/documentation/concepts/sessions)
 
-#### Database
+
+## Database
 For our project we Utilized the [MySQL adapter](https://www.npmjs.com/package/sails-mysql) for translating SailsJS' high level [Waterline Orm](https://sailsjs.com/documentation/concepts/models-and-orm) into mysql queries that would fetch or manipulate data in our database.
+
+On the master branch it's a [local disk adapter](https://www.npmjs.com/package/sails-disk) that allows you to run the project locally without the need to set up a database.
+
 ## Linting
 <img
 src="https://es6.io/images/eslint.png"
@@ -523,7 +526,7 @@ We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, t
 Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml).
 
 To make our workflow support continous delivery, we've added the option to automatically deploy pull requests when they are made to dev and master branch, using [Appr](https://github.com/FormidableLabs/appr).
-When we use this, it automatically posts a link and QR code to the pull request, so we can run the app on our device on emulator.
+When we use this, it automatically posts a link and QR code to the pull request, so we can run the app on our device or emulator.
 
 
 ## Deployment
@@ -556,6 +559,9 @@ Build the Dashboard
 npm run build
 ```
 The project is now built assuming it is hosted at the server root.
+
+On the dashboard repository Travis CI is setup to auto-deploy new pushes to the master branch directly to [surge.sh](https://surge.sh/). See the .travis.yml file for settings and the deployment address.
+
 If you want to read more about other methods for deployment, check out
 [React Deployment](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
@@ -587,29 +593,19 @@ This will create a Heroku app on your account, with the provided name for the ap
 If you don't provide a name, a random one will be generated for you
 
 #### Deploy sails app
-```
-cd root folder of git repo
-heroku git:remote -a yourAppName
-git subtree push --prefix Backend heroku master
-check if is up and running: https://yourAppName.herokuapp.com/
-```
+1. Navigate to the root folder - ```cd ..```
+2. ```heroku git:remote -a yourAppName```
+3. ```git subtree push --prefix Backend heroku master```
+4. Check if it is up and running: https://yourAppName.herokuapp.com/
 
-This will deploy the backend app to the heroku app directory you have setup during deployement.
+
+This will deploy the backend app to the Heroku app directory you have setup during deployment.
 
 
 ## Authors
-<<<<<<< HEAD
 * **Christian Nyvoll** - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - [Git](https://github.com/Shamzaa)
 * **Henrik Liodden** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/henrikliodden/)
 * **Kristiane Westgård** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
-=======
-* **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
-* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
-* **Erling Ihlen** - *Test Leader* - [Git](https://github.com/Shamzaa)
-* **Henrik Liodden** - *Team Member* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/henrikliodden/)
-* **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
-* **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
->>>>>>> dev
