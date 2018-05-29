@@ -17,8 +17,8 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  // connection: 'localDiskDb',
-  connection: 'tkdata_mysql',
+  connection: 'localDiskDb',
+  // connection: 'tkdata_mysql',
 
   /***************************************************************************
   *                                                                          *
